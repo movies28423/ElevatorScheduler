@@ -1,4 +1,4 @@
-# ElevatorScheuler
+# ElevatorScheduler
 Elevator Scheduler program, task taken from r/dailyprogrammer:
 https://www.reddit.com/r/dailyprogrammer/comments/39ixxi/20150612_challenge_218_hard_elevator_scheduling/ 
 
