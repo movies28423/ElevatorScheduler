@@ -1,4 +1,4 @@
-import ride
+from ride import Ride
 
 class Rider:
     def __init__(self, rider_name, time_point, starting_point, end_point):
@@ -19,3 +19,5 @@ class Rider:
             self._ride_list = self._ride_list[1::]
         else:
             self._ride_list = []
+
+
