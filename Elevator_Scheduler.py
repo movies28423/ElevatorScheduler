@@ -1,7 +1,7 @@
 import math
 import Queue
-import car
-import rider
+from car import Car
+from rider import Rider
 
 class Elevator_Scheduler:
     def __init__(self, rider_file):
@@ -75,7 +75,7 @@ class Elevator_Scheduler:
     def let_riders_off(self, removed_riders):
         completed_rides = []
         for rider_to_remove in removed_riders:
-            self._completed_rides.append(rider_to_remove[1].get_rider_list()[0])
+            self._completed_rides.append(rider_to_remove[1].get_rider_name() + ' ' + str(rider_to_remove[0]) + ' ' + str(rider_to_remove[1].get_rider_list()[0].get_starting_point()) + ' ' + str(rider_to_remove[1].get_rider_list()[0].get_end_point()))
             rider_to_remove[1].remove_ride()
             if len(rider_to_remove[1].get_rider_list()) > 0:
                 self._rider_queue[rider_to_remove[1].get_rider_list()[0].get_starting_point()].put((rider_to_remove[1].get_rider_list()[0].get_time_point(), rider_to_remove[1]))
@@ -89,7 +89,7 @@ class Elevator_Scheduler:
                     if next_rider[1].get_rider_list()[0].get_end_point() == current_cab.get_current_floor():
                         self.let_riders_off([next_rider])
                     elif next_rider[1].get_rider_list()[0].get_time_point() <= int(current_cab.get_next_time()):
-                        first_cab.get_current_riders().append(next_rider)                    
+                        current_cab.get_current_riders().append(next_rider)                    
                     else:
                         riders_to_add.append(next_rider)
                         break
